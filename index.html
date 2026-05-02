@@ -82,16 +82,53 @@ section{padding:90px 5%}
 .service-card h3{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--text);margin-bottom:10px}
 .service-card p{font-size:0.84rem;color:var(--text-light);line-height:1.7}
 
-/* TOOLS */
+/* TOOLS — 3D Pills */
 #tools{background:var(--white)}
 .tools-inner{max-width:960px;margin:0 auto}
-.tools-group{margin-bottom:36px}
-.tools-group-label{font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--terra);margin-bottom:16px}
-.tools-logos{display:flex;flex-wrap:wrap;gap:12px}
-.tool-logo{display:flex;flex-direction:column;align-items:center;gap:6px;background:var(--cream);border:1.5px solid var(--beige);border-radius:14px;padding:12px 14px;min-width:70px;transition:all 0.25s}
-.tool-logo:hover{border-color:var(--terra);transform:translateY(-3px)}
-.tool-logo img{width:34px;height:34px;object-fit:contain}
-.tool-logo span{font-size:0.67rem;font-weight:500;color:var(--text-light);text-align:center}
+.pills-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;max-width:860px;margin:0 auto}
+.pill{
+  padding:10px 22px;
+  border-radius:50px;
+  font-size:13px;
+  font-weight:600;
+  color:#7a3e0e;
+  background:linear-gradient(145deg,#f5dfc8,#e8c4a0);
+  box-shadow:
+    4px 4px 8px rgba(139,79,30,0.25),
+    -2px -2px 6px rgba(255,245,235,0.9),
+    inset 1px 1px 2px rgba(255,255,255,0.6),
+    inset -1px -1px 2px rgba(181,101,29,0.15);
+  border:1px solid rgba(181,101,29,0.2);
+  letter-spacing:0.3px;
+  transition:transform 0.15s,box-shadow 0.15s;
+  cursor:default;
+}
+.pill:hover{
+  transform:translateY(-2px);
+  box-shadow:
+    6px 6px 14px rgba(139,79,30,0.3),
+    -2px -2px 8px rgba(255,245,235,0.95),
+    inset 1px 1px 2px rgba(255,255,255,0.7),
+    inset -1px -1px 2px rgba(181,101,29,0.2);
+}
+.pill.dark{
+  background:linear-gradient(145deg,#5a2d0c,#3d1f08);
+  color:#f5dfc8;
+  box-shadow:
+    4px 4px 8px rgba(0,0,0,0.4),
+    -1px -1px 4px rgba(120,60,20,0.3),
+    inset 1px 1px 2px rgba(180,100,40,0.2),
+    inset -1px -1px 2px rgba(0,0,0,0.3);
+  border:1px solid rgba(181,101,29,0.35);
+}
+.pill.dark:hover{
+  transform:translateY(-2px);
+  box-shadow:
+    6px 6px 14px rgba(0,0,0,0.5),
+    -1px -1px 6px rgba(120,60,20,0.35),
+    inset 1px 1px 2px rgba(180,100,40,0.25),
+    inset -1px -1px 2px rgba(0,0,0,0.35);
+}
 
 /* WHY */
 #why{background:linear-gradient(135deg,var(--terra-dark) 0%,var(--terra) 60%,var(--terra-light) 100%);color:#fff}
@@ -153,7 +190,7 @@ section{padding:90px 5%}
 footer{background:var(--text);color:rgba(255,255,255,0.6);text-align:center;padding:26px 5%;font-size:0.82rem}
 footer strong{color:#fff}
 
-/* ── ADMIN LOGIN MODAL ── */
+/* ADMIN LOGIN MODAL */
 #adminLogin{display:none;position:fixed;inset:0;z-index:600;background:rgba(20,10,5,0.88);backdrop-filter:blur(8px);align-items:center;justify-content:center}
 #adminLogin.open{display:flex}
 .login-box{background:var(--white);border-radius:24px;padding:48px 40px;width:100%;max-width:420px;box-shadow:0 30px 80px rgba(0,0,0,0.2);text-align:center}
@@ -168,7 +205,7 @@ footer strong{color:#fff}
 .login-cancel:hover{color:var(--terra)}
 .login-error{color:var(--red);font-size:0.82rem;margin-bottom:12px;display:none}
 
-/* ── ADMIN PANEL (sidebar) ── */
+/* ADMIN PANEL */
 #adminPanel{position:fixed;top:0;right:-380px;width:360px;height:100vh;background:var(--white);z-index:500;box-shadow:-8px 0 40px rgba(0,0,0,0.15);transition:right 0.4s ease;display:flex;flex-direction:column;overflow:hidden}
 #adminPanel.open{right:0}
 .ap-header{background:linear-gradient(135deg,var(--terra-dark),var(--terra));padding:24px 20px;color:#fff;flex-shrink:0}
@@ -202,7 +239,6 @@ footer strong{color:#fff}
 .ap-logout:hover{background:var(--red);color:#fff}
 .ap-success{background:var(--green-light);color:var(--green);border-radius:10px;padding:10px 14px;font-size:0.82rem;font-weight:500;margin-top:10px;display:none;text-align:center}
 
-/* Admin mode indicator */
 .admin-bar{display:none;position:fixed;top:70px;left:0;right:0;background:var(--terra);color:#fff;text-align:center;padding:8px;font-size:0.8rem;font-weight:600;z-index:90;letter-spacing:0.5px}
 .admin-bar.show{display:block}
 
@@ -384,7 +420,7 @@ footer strong{color:#fff}
   <div class="centered reveal"><p class="section-label">What I Offer</p><h2 class="section-title">What I Can Do For You</h2><div class="section-divider"></div></div>
   <div class="services-grid">
     <div class="service-card reveal"><div class="service-icon">📞</div><h3>Cold Calling & Appointment Setting</h3><p>Outbound calls, lead qualification, and follow-ups via call, SMS & email.</p></div>
-    <div class="service-card reveal"><div class="service-icon">🏠</div><h3>Real Estate VA</h3><p>Off-market sourcing, CMA research, contract prep, agent coordination across AU and US markets.</p></div>
+    <div class="service-card reveal"><div class="service-icon">🏠</div><h3>Real Estate VA</h3><p>Off-market sourcing, contract prep, and agent coordination across AU and US markets.</p></div>
     <div class="service-card reveal"><div class="service-icon">🚚</div><h3>Freight VA</h3><p>Logistics virtual assistance and coordination — keeping your shipments running smoothly.</p></div>
     <div class="service-card reveal"><div class="service-icon">🗂️</div><h3>Executive & Admin Support</h3><p>Email management, calendar scheduling, travel arrangements, and document handling.</p></div>
     <div class="service-card reveal"><div class="service-icon">📱</div><h3>Social Media Management</h3><p>Instagram, LinkedIn, Facebook — content creation, scheduling, and engagement.</p></div>
@@ -395,34 +431,13 @@ footer strong{color:#fff}
 
 <!-- TOOLS -->
 <section id="tools">
-  <div class="centered reveal"><p class="section-label">My Toolkit</p><h2 class="section-title">Tools & Platforms</h2><div class="section-divider"></div></div>
-  <div class="tools-inner">
-    <div class="tools-group reveal"><p class="tools-group-label">CRM & Productivity</p><div class="tools-logos">
-      <div class="tool-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Zoho_logo.svg/200px-Zoho_logo.svg.png" alt="Zoho"/><span>Zoho</span></div>
-      <div class="tool-logo"><img src="https://cdn.worldvectorlogo.com/logos/asana-logo.svg" alt="Asana"/><span>Asana</span></div>
-      <div class="tool-logo"><img src="https://cdn.worldvectorlogo.com/logos/trello.svg" alt="Trello"/><span>Trello</span></div>
-      <div class="tool-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/4/45/Notion_app_logo.png" alt="Notion"/><span>Notion</span></div>
-      <div class="tool-logo"><img src="https://cdn-icons-png.flaticon.com/512/3178/3178290.png" alt="Top Producer"/><span>Top Producer</span></div>
-      <div class="tool-logo"><img src="https://cdn-icons-png.flaticon.com/512/597/597177.png" alt="VoipCloud"/><span>VoipCloud</span></div>
-    </div></div>
-    <div class="tools-group reveal"><p class="tools-group-label">Design & Video</p><div class="tools-logos">
-      <div class="tool-logo"><img src="https://cdn.worldvectorlogo.com/logos/canva-1.svg" alt="Canva"/><span>Canva</span></div>
-      <div class="tool-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Adobe_Photoshop_CC_icon.svg/200px-Adobe_Photoshop_CC_icon.svg.png" alt="Photoshop"/><span>Photoshop</span></div>
-      <div class="tool-logo"><img src="https://cdn-icons-png.flaticon.com/512/5977/5977590.png" alt="Filmora"/><span>Filmora</span></div>
-      <div class="tool-logo"><img src="https://cdn-icons-png.flaticon.com/512/6033/6033716.png" alt="CapCut"/><span>CapCut</span></div>
-    </div></div>
-    <div class="tools-group reveal"><p class="tools-group-label">Office & Communication</p><div class="tools-logos">
-      <div class="tool-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/200px-Google_%22G%22_Logo.svg.png" alt="Google Suite"/><span>Google Suite</span></div>
-      <div class="tool-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Microsoft_Office_2013-2019_logo.svg/200px-Microsoft_Office_2013-2019_logo.svg.png" alt="MS Office"/><span>MS Office</span></div>
-      <div class="tool-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/200px-WhatsApp.svg.png" alt="WhatsApp"/><span>WhatsApp</span></div>
-    </div></div>
-    <div class="tools-group reveal"><p class="tools-group-label">Real Estate Platforms</p><div class="tools-logos">
-      <div class="tool-logo"><img src="https://cdn-icons-png.flaticon.com/512/1040/1040230.png" alt="CoreLogic"/><span>CoreLogic</span></div>
-      <div class="tool-logo"><img src="https://cdn-icons-png.flaticon.com/512/1040/1040230.png" alt="Pricefinder"/><span>Pricefinder</span></div>
-      <div class="tool-logo"><img src="https://cdn-icons-png.flaticon.com/512/1040/1040230.png" alt="REA"/><span>REA.com.au</span></div>
-      <div class="tool-logo"><img src="https://cdn-icons-png.flaticon.com/512/1040/1040230.png" alt="Domain"/><span>Domain.com.au</span></div>
-      <div class="tool-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Zillow_logo.svg/200px-Zillow_logo.svg.png" alt="Zillow"/><span>Zillow</span></div>
-    </div></div>
+  <div class="centered reveal">
+    <p class="section-label">My Toolkit</p>
+    <h2 class="section-title">Tools & Platforms</h2>
+    <div class="section-divider"></div>
+  </div>
+  <div class="tools-inner reveal">
+    <div class="pills-grid" id="toolsPills"></div>
   </div>
 </section>
 
@@ -491,7 +506,7 @@ footer strong{color:#fff}
   <p style="margin-top:6px;font-size:0.75rem">Your Reliable VA from the Philippines 🇵🇭</p>
 </footer>
 
-<!-- ══ ADMIN LOGIN MODAL ══ -->
+<!-- ADMIN LOGIN MODAL -->
 <div id="adminLogin">
   <div class="login-box">
     <div class="login-icon">🔐</div>
@@ -504,7 +519,7 @@ footer strong{color:#fff}
   </div>
 </div>
 
-<!-- ══ ADMIN PANEL ══ -->
+<!-- ADMIN PANEL -->
 <div id="adminPanel">
   <div class="ap-header" style="position:relative">
     <button class="ap-close" onclick="closeAdmin()">✕</button>
@@ -512,7 +527,6 @@ footer strong{color:#fff}
     <p>Manage your gallery — upload & delete</p>
   </div>
   <div class="ap-body">
-
     <div class="ap-section">
       <div class="ap-section-title">📸 Add to Gallery</div>
       <select class="ap-cat-select" id="apCat">
@@ -532,16 +546,13 @@ footer strong{color:#fff}
       <button class="ap-add-btn" id="apAddBtn" onclick="addToGallery()" disabled>➕ Add to Gallery</button>
       <div class="ap-success" id="apSuccess">✅ Added successfully!</div>
     </div>
-
     <div class="ap-section">
       <div class="ap-section-title">🖼️ Current Gallery Items</div>
       <div class="ap-gallery-thumbs" id="apThumbs"></div>
     </div>
-
     <div class="ap-section">
       <button class="ap-logout" onclick="doLogout()">🚪 Log Out of Admin</button>
     </div>
-
   </div>
 </div>
 
@@ -572,18 +583,17 @@ footer strong{color:#fff}
           <div class="flow-step"><div class="step-num"><div class="step-circle">4</div></div><div class="step-card"><div class="step-card-title">Step 4</div><div class="step-card-heading">Contract — Buyer's Engagement Form</div><ul><li>Go to Zoho Sign</li><li>Prepare contract accurately</li><li>Review all details before sending</li><li>Send to client for signature</li></ul></div></div>
           <div class="flow-step"><div class="step-num"><div class="step-circle">5</div></div><div class="step-card"><div class="step-card-title">Step 5</div><div class="step-card-heading">Offer Details & WhatsApp Group</div><ul><li>Send thank-you + Details for Offers document</li><li>Create WhatsApp Group: <strong>Internal Group — [Client Name]</strong></li></ul></div></div>
           <div class="flow-step"><div class="step-num"><div class="step-circle">6</div></div><div class="step-card"><div class="step-card-title">Step 6</div><div class="step-card-heading">Suburb Shortlisting & Cold Calling</div><ul><li>Shortlist suburbs based on client criteria</li><li>Begin cold calling for off-market properties</li><li>See Calling Agents tab for full process</li></ul></div></div>
-          <div class="flow-step"><div class="step-num"><div class="step-circle">7</div></div><div class="step-card"><div class="step-card-title">Step 7</div><div class="step-card-heading">Comparative Market Analysis (CMA)</div><div class="info-box" style="margin-bottom:13px">Determines fair market value by comparing similar recent sales.</div><ul><li>Access CoreLogic at rpp.corelogic.com.au</li><li>Generate comparable sales table report</li><li>Contact local PMs to identify suburb red flags</li></ul></div></div>
-          <div class="flow-step"><div class="step-num"><div class="step-circle">8</div></div><div class="step-card"><div class="step-card-title">Step 8</div><div class="step-card-heading">Offer Preparation</div><ul><li>Use Offer Details confirmed by client</li><li>Request offer details from BA via WhatsApp group</li><li>Send screenshot for BA confirmation before submitting</li></ul></div></div>
-          <div class="flow-step"><div class="step-num"><div class="step-circle">9</div></div><div class="step-card"><div class="step-card-title">Step 9</div><div class="step-card-heading">Offer Accepted — Receive Contract</div><ul><li>Download/forward contract to client and Conveyancer</li><li>Copy BA on all emails</li></ul></div></div>
-          <div class="flow-step"><div class="step-num"><div class="step-circle">10</div></div><div class="step-card"><div class="step-card-title">Step 10</div><div class="step-card-heading">Email Conveyancer</div><ul><li>Request important contract dates</li><li>Copy client and BA</li></ul></div></div>
-          <div class="flow-step"><div class="step-num"><div class="step-circle">11</div></div><div class="step-card"><div class="step-card-title">Step 11</div><div class="step-card-heading">Calendar Reminders</div><ul><li>Set reminders 2–3 days before each date</li><li>Add BA as calendar invitee</li></ul></div></div>
-          <div class="flow-step"><div class="step-num"><div class="step-circle">12</div></div><div class="step-card"><div class="step-card-title">Step 12</div><div class="step-card-heading">Update WhatsApp Group</div><ul><li>Input confirmed dates in group description</li><li>Keep property details up to date</li></ul></div></div>
-          <div class="flow-step"><div class="step-num"><div class="step-circle">13</div></div><div class="step-card"><div class="step-card-title">Step 13</div><div class="step-card-heading">Building & Pest Inspection</div><ul><li>Organise inspection, confirm company with BA</li><li>Copy BA on all correspondence</li></ul></div></div>
-          <div class="flow-step"><div class="step-num"><div class="step-circle">14</div></div><div class="step-card"><div class="step-card-title">Step 14</div><div class="step-card-heading">Request Rental Appraisal</div><ul><li>Email PM for rental appraisal</li><li>Confirm PM choice with BA</li></ul></div></div>
-          <div class="flow-step"><div class="step-num"><div class="step-circle">15</div></div><div class="step-card"><div class="step-card-title">Step 15</div><div class="step-card-heading">Forward Rental Appraisal</div><ul><li>Forward to client and mortgage broker</li><li>Copy BA</li></ul></div></div>
-          <div class="flow-step"><div class="step-num"><div class="step-circle">16</div></div><div class="step-card"><div class="step-card-title">Step 16</div><div class="step-card-heading">Pre-Settlement Inspection</div><ul><li>Coordinate with sales agent and PM</li><li>Schedule 1 week to 2 days before settlement</li></ul></div></div>
-          <div class="flow-step"><div class="step-num"><div class="step-circle">17</div></div><div class="step-card"><div class="step-card-title">Step 17</div><div class="step-card-heading">Settlement Reminder</div><ul><li>Send reminder in WhatsApp group 2 days before settlement</li></ul></div></div>
-          <div class="flow-step"><div class="step-num"><div class="step-circle">18</div></div><div class="step-card"><div class="step-card-title">Step 18 · Final</div><div class="step-card-heading">Close WhatsApp Group</div><ul><li>Remove BA and WhatsApp Business account</li><li>Delete the group chat</li></ul><span class="end-badge">End of Client Journey</span></div></div>
+          <div class="flow-step"><div class="step-num"><div class="step-circle">7</div></div><div class="step-card"><div class="step-card-title">Step 7</div><div class="step-card-heading">Offer Preparation</div><ul><li>Use Offer Details confirmed by client</li><li>Request offer details from BA via WhatsApp group</li><li>Send screenshot for BA confirmation before submitting</li></ul></div></div>
+          <div class="flow-step"><div class="step-num"><div class="step-circle">8</div></div><div class="step-card"><div class="step-card-title">Step 8</div><div class="step-card-heading">Offer Accepted — Receive Contract</div><ul><li>Download/forward contract to client and Conveyancer</li><li>Copy BA on all emails</li></ul></div></div>
+          <div class="flow-step"><div class="step-num"><div class="step-circle">9</div></div><div class="step-card"><div class="step-card-title">Step 9</div><div class="step-card-heading">Email Conveyancer</div><ul><li>Request important contract dates</li><li>Copy client and BA</li></ul></div></div>
+          <div class="flow-step"><div class="step-num"><div class="step-circle">10</div></div><div class="step-card"><div class="step-card-title">Step 10</div><div class="step-card-heading">Calendar Reminders</div><ul><li>Set reminders 2–3 days before each date</li><li>Add BA as calendar invitee</li></ul></div></div>
+          <div class="flow-step"><div class="step-num"><div class="step-circle">11</div></div><div class="step-card"><div class="step-card-title">Step 11</div><div class="step-card-heading">Update WhatsApp Group</div><ul><li>Input confirmed dates in group description</li><li>Keep property details up to date</li></ul></div></div>
+          <div class="flow-step"><div class="step-num"><div class="step-circle">12</div></div><div class="step-card"><div class="step-card-title">Step 12</div><div class="step-card-heading">Building & Pest Inspection</div><ul><li>Organise inspection, confirm company with BA</li><li>Copy BA on all correspondence</li></ul></div></div>
+          <div class="flow-step"><div class="step-num"><div class="step-circle">13</div></div><div class="step-card"><div class="step-card-title">Step 13</div><div class="step-card-heading">Request Rental Appraisal</div><ul><li>Email PM for rental appraisal</li><li>Confirm PM choice with BA</li></ul></div></div>
+          <div class="flow-step"><div class="step-num"><div class="step-circle">14</div></div><div class="step-card"><div class="step-card-title">Step 14</div><div class="step-card-heading">Forward Rental Appraisal</div><ul><li>Forward to client and mortgage broker</li><li>Copy BA</li></ul></div></div>
+          <div class="flow-step"><div class="step-num"><div class="step-circle">15</div></div><div class="step-card"><div class="step-card-title">Step 15</div><div class="step-card-heading">Pre-Settlement Inspection</div><ul><li>Coordinate with sales agent and PM</li><li>Schedule 1 week to 2 days before settlement</li></ul></div></div>
+          <div class="flow-step"><div class="step-num"><div class="step-circle">16</div></div><div class="step-card"><div class="step-card-title">Step 16</div><div class="step-card-heading">Settlement Reminder</div><ul><li>Send reminder in WhatsApp group 2 days before settlement</li></ul></div></div>
+          <div class="flow-step"><div class="step-num"><div class="step-circle">17</div></div><div class="step-card"><div class="step-card-title">Step 17 · Final</div><div class="step-card-heading">Close WhatsApp Group</div><ul><li>Remove BA and WhatsApp Business account</li><li>Delete the group chat</li></ul><span class="end-badge">End of Client Journey</span></div></div>
         </div>
       </div>
       <div id="wf-calling" class="wf-tab-panel">
@@ -659,7 +669,25 @@ footer strong{color:#fff}
 </div>
 
 <script>
-// ── PASSWORD (change this to your own!) ──────────────────────
+// ── TOOLS PILLS (A–Z) ─────────────────────────────────────────
+const toolsList = [
+  "Adobe Photoshop","CapCut","Canva","ChatGPT","Claude AI",
+  "CoreLogic","Estes Express Lines","Fathom","Filmora",
+  "Force Freight","Gmail","Google Sheets","Google Suite",
+  "iD4me","MRI Vault CRM","Nurture Cloud","Old Dominion Freight",
+  "Pricefinder","ReadyMode Dialer","Top Producer CRM",
+  "VoIP Cloud Dialer","WhatsApp","Zoom","Zoho CRM"
+].sort((a,b)=>a.localeCompare(b));
+
+const pillsGrid = document.getElementById('toolsPills');
+toolsList.forEach((name,i)=>{
+  const span = document.createElement('span');
+  span.className = 'pill' + (i%2===1 ? ' dark' : '');
+  span.textContent = name;
+  pillsGrid.appendChild(span);
+});
+
+// ── PASSWORD ──────────────────────────────────────────────────
 const ADMIN_PASSWORD = 'MoeSRVS2026!';
 
 // ── ADMIN STATE ───────────────────────────────────────────────
@@ -702,7 +730,7 @@ function doLogout(){
   document.body.classList.remove('admin-mode');
 }
 
-// ── GALLERY DATA ───────────────────────────────────────────────
+// ── GALLERY ───────────────────────────────────────────────────
 let galleryItems = [];
 let activeFilter = 'all';
 const tagMap = {'real-estate':'🏠 Real Estate','graphics':'🎨 Graphics','video':'🎬 Video','admin':'🗂️ Admin & VA'};
@@ -746,7 +774,7 @@ function deleteItem(id){
   buildGallery(); refreshThumbs();
 }
 
-// ── ADMIN UPLOAD ───────────────────────────────────────────────
+// ── ADMIN UPLOAD ──────────────────────────────────────────────
 function previewFile(e){
   const file = e.target.files[0];
   if(!file) return;
@@ -769,7 +797,6 @@ function addToGallery(){
   const isV = pendingFile.type.startsWith('video/');
   galleryItems.push({id: itemIdCounter++, cat, type: isV?'video':'image', src:url, title});
   buildGallery(); refreshThumbs();
-  // Reset
   pendingFile=null;
   document.getElementById('apFile').value='';
   document.getElementById('apTitle').value='';
